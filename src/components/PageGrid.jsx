@@ -1,7 +1,13 @@
 //STYLES
 import '../styles/PageGrid.css'
 
-const PageGrid = () => {
+//COMPONENT
+import Image from './Image';
+
+const PageGrid = ({response, twoResponse}) => {
+    console.log(response)
+    if(!response || !twoResponse) return <p>loading images...</p>
+
     return ( 
         <div className='content'>
             <div className='header'>
@@ -9,22 +15,22 @@ const PageGrid = () => {
                 <h5>START SLIDESHOW</h5>
             </div>
             <hr />
-            <div class="wrapper">
-                <div className="one">One</div>
-                <div className="two">Two</div>
-                <div className="three">Three</div>
-                <div className="four">Four</div>
-                <div className="five">Five</div>
-                <div className="six">Six</div>
-                <div className="seven">Seven</div>
-                <div className="eight">Eight</div>
-                <div className="nine">Nine</div>
-                <div className="ten">Ten</div>
-                <div className="eleven">Eleven</div>
-                <div className="twelve">Twelve</div>
-                <div className="thirteen">Thirteen</div>
-                <div className="fourteen">Fourteen</div>
-                <div className="fiveteen">Fiveteen</div>
+            <div className="wrapper">
+                <div className="one"><Image url={response.results[0].links.download} text='texto'/></div>
+                <div className="two"><Image url={response.results[1].links.download} text='texto'/></div>
+                <div className="three"><Image url={response.results[2].links.download} text='texto'/></div>
+                <div className="four"><Image url={response.results[3].links.download} text='texto'/></div>
+                <div className="five"><Image url={response.results[4].links.download} text='texto'/></div>
+                <div className="six"><Image url={response.results[5].links.download} text='texto'/></div>
+                <div className="seven"><Image url={response.results[6].links.download} text='texto'/></div>
+                <div className="eight"><Image url={response.results[7].links.download} text='texto'/></div>
+                <div className="nine"><Image url={response.results[8].links.download} text='texto'/></div>
+                <div className="ten"><Image url={twoResponse.results[8].links.download} text='texto'/></div>
+                <div className="eleven"><Image url={twoResponse.results[5].links.download} text='texto'/></div>
+                <div className="twelve"><Image url={twoResponse.results[2].links.download} text='texto'/></div>
+                <div className="thirteen"><Image url={twoResponse.results[3].links.download} text='texto'/></div>
+                <div className="fourteen"><Image url={twoResponse.results[6].links.download} text='texto'/></div>
+                <div className="fiveteen"><Image url={twoResponse.results[7].links.download} text='texto'/></div>
             </div>
         </div>
      );
